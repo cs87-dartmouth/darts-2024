@@ -1,0 +1,217 @@
+{
+    "camera": {
+        "transform": {
+            "from": [
+                0, 20, 1600
+            ],
+            "at": [
+                0, -4, 0
+            ],
+            "up": [0, 1, 0]
+        },
+        "vertical fov": 25,
+        "focus distance": 800,
+        "resolution": [900, 400]
+    },
+    "sampler": {
+        "type": "independent",
+        "samples": 512
+    },
+    "background": [
+        0, 0, 0
+    ],
+    "accelerator": {
+        "type": "bbh"
+    },
+    "materials": [
+        {
+            "type": "diffuse",
+            "name": "white",
+            "color": [0.73, 0.73, 0.73]
+        },
+        {
+            "type": "diffuse",
+            "name": "red",
+            "color": [0.65, 0.05, 0.05]
+        },
+        {
+            "type": "diffuse",
+            "name": "green",
+            "color": [0.12, 0.45, 0.15]
+        },
+        {
+            "type": "emission",
+            "name": "light",
+            "color": 1
+        }, {
+            "type": "diffuse",
+            "name": "base",
+            "color": [0.15, 0.15, 0.65]
+        }, {
+            "type": "metal",
+            "name": "varnish",
+            "color": 1,
+            "roughness": 0
+        }, {
+            "type": "mix",
+            "name": "glossy0",
+            "factor": 0.0,
+            "a": "base",
+            "b": "varnish"
+        }, {
+            "type": "mix",
+            "name": "glossy1",
+            "factor": 0.00824,
+            "a": "base",
+            "b": "varnish"
+        }, {
+            "type": "mix",
+            "name": "glossy2",
+            "factor": 0.04,
+            "a": "base",
+            "b": "varnish"
+        }, {
+            "type": "mix",
+            "name": "glossy3",
+            "factor": 0.18367347,
+            "a": "base",
+            "b": "varnish"
+        }, {
+            "type": "mix",
+            "name": "glossy4",
+            "factor": 0.40495868,
+            "a": "base",
+            "b": "varnish"
+        }, {
+            "type": "mix",
+            "name": "glossy5",
+            "factor": 0.765625,
+            "a": "base",
+            "b": "varnish"
+        }
+    ],
+    "surfaces": [
+        {
+            "type": "quad",
+            "transform": [
+                {
+                    "translate": [0, 0, -277.5]
+                }
+            ],
+            "size": [
+                1300, 555
+            ],
+            "material": "white"
+        },
+        {
+            "type": "quad",
+            "transform": [
+                {
+                    "rotate": [90, 1, 0, 0]
+                }, {
+                    "translate": [0, 277.5, 0]
+                }
+            ],
+            "size": [
+                1300, 2555
+            ],
+            "material": "white"
+        },
+        {
+            "type": "quad",
+            "transform": [
+                {
+                    "rotate": [-90, 1, 0, 0]
+                }, {
+                    "translate": [0, -277.5, 0]
+                }
+            ],
+            "size": [
+                1300, 2555
+            ],
+            "material": "white"
+        },
+        {
+            "type": "quad",
+            "transform": [
+                {
+                    "rotate": [90, 0, 1, 0]
+                }, {
+                    "translate": [-650, 0, 0]
+                }
+            ],
+            "size": [
+                2555, 2555
+            ],
+            "material": "green"
+        }, {
+            "type": "quad",
+            "transform": [
+                {
+                    "rotate": [-90, 0, 1, 0]
+                }, {
+                    "translate": [650, 0, 0]
+                }
+            ],
+            "size": [
+                2555, 2555
+            ],
+            "material": "red"
+        }, {
+            "type": "quad",
+            "transform": [
+                {
+                    "rotate": [90, 1, 0, 0]
+                }, {
+                    "translate": [0, 277, 0]
+                }
+            ],
+            "size": [
+                1000, 500
+            ],
+            "material": "light"
+        }, {
+            "type": "sphere",
+            "transform": {
+                "translate": [-500, -177.5, -200]
+            },
+            "radius": 100,
+            "material": "glossy5"
+        }, {
+            "type": "sphere",
+            "transform": {
+                "translate": [-300, -177.5, -120]
+            },
+            "radius": 100,
+            "material": "glossy4"
+        }, {
+            "type": "sphere",
+            "transform": {
+                "translate": [-100, -177.5, -40]
+            },
+            "radius": 100,
+            "material": "glossy3"
+        }, {
+            "type": "sphere",
+            "transform": {
+                "translate": [100, -177.5, 40]
+            },
+            "radius": 100,
+            "material": "glossy2"
+        }, {
+            "type": "sphere",
+            "transform": {
+                "translate": [300, -177.5, 120]
+            },
+            "radius": 100,
+            "material": "glossy1"
+        }, {
+            "type": "sphere",
+            "transform": {
+                "translate": [500, -177.5, 200]
+            },
+            "radius": 100,
+            "material": "glossy0"
+        }
+    ]
+}

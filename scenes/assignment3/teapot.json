@@ -1,0 +1,148 @@
+{
+    "camera": {
+        "transform": {
+            "from": [
+                0, 20, 1077.5
+            ],
+            "at": [
+                0, -4, 0
+            ],
+            "up": [0, 1, 0]
+        },
+        "vertical fov": 40,
+        "focus distance": 800
+    },
+    "sampler": {
+        "type": "independent",
+        "samples": 50
+    },
+    "background": 0.3,
+    "accelerator": {
+        "type": "bbh"
+    },
+    "materials": [
+        {
+            "type": "diffuse",
+            "name": "white",
+            "color": [0.73, 0.73, 0.73]
+        },
+        {
+            "type": "diffuse",
+            "name": "red",
+            "color": [0.65, 0.05, 0.05]
+        },
+        {
+            "type": "diffuse",
+            "name": "green",
+            "color": [0.12, 0.45, 0.15]
+        },
+        {
+            "type": "emission",
+            "name": "light",
+            "color": 2
+        }, {
+            "type": "diffuse",
+            "name": "teapot",
+            "color": {
+                "type": "image",
+                "filename": "../assets/checker-map.png"
+            }
+        }
+    ],
+    "surfaces": [
+        {
+            "type": "quad",
+            "transform": [
+                {
+                    "translate": [0, 0, -277.5]
+                }
+            ],
+            "size": [
+                555, 555
+            ],
+            "material": "white"
+        },
+        {
+            "type": "quad",
+            "transform": [
+                {
+                    "rotate": [90, 1, 0, 0]
+                }, {
+                    "translate": [0, 277.5, 0]
+                }
+            ],
+            "size": [
+                555, 555
+            ],
+            "material": "white"
+        },
+        {
+            "type": "quad",
+            "transform": [
+                {
+                    "rotate": [-90, 1, 0, 0]
+                }, {
+                    "translate": [0, -277.5, 0]
+                }
+            ],
+            "size": [
+                555, 555
+            ],
+            "material": "white"
+        },
+        {
+            "type": "quad",
+            "transform": [
+                {
+                    "rotate": [90, 0, 1, 0]
+                }, {
+                    "translate": [-277.5, 0, 0]
+                }
+            ],
+            "size": [
+                555, 555
+            ],
+            "material": "green"
+        }, {
+            "type": "quad",
+            "transform": [
+                {
+                    "rotate": [-90, 0, 1, 0]
+                }, {
+                    "translate": [277.5, 0, 0]
+                }
+            ],
+            "size": [
+                555, 555
+            ],
+            "material": "red"
+        }, {
+            "type": "quad",
+            "transform": [
+                {
+                    "rotate": [90, 1, 0, 0]
+                }, {
+                    "translate": [0, 277, 0]
+                }
+            ],
+            "size": [
+                500, 500
+            ],
+            "material": "light"
+        }, {
+            "type": "mesh",
+            "name": "teapot",
+            "filename": "../assets/teapot.obj",
+            "transform": [
+                {
+                    "scale": 4
+                }, {
+                    "rotate": [-35, 0, 1, 0]
+                }, {
+                    "translate": [0, -277.5, 0]
+                }
+            ],
+            "material": "teapot"
+        }
+    ]
+}

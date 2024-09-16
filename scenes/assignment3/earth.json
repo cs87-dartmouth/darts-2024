@@ -1,0 +1,61 @@
+{
+    "camera": {
+        "transform": {
+            "from": [
+                0, -5, 0.6
+            ],
+            "at": [
+                0, 0, 0.5
+            ],
+            "up": [0, 0, 1]
+        },
+        "vertical fov": 40,
+        "focus distance": 6,
+        "resolution": [512, 512]
+    },
+    "sampler": {
+        "type": "independent",
+        "samples": 50
+    },
+    "background": 1,
+    "accelerator": {
+        "type": "bbh"
+    },
+    "materials": [
+        {
+            "type": "diffuse",
+            "name": "earth",
+            "color": {
+                "type": "image",
+                "filename": "../assets/earth.jpg"
+            }
+        }, {
+            "type": "diffuse",
+            "name": "white",
+            "color": 1
+        }
+    ],
+    "surfaces": [
+        {
+            "type": "sphere",
+            "material": "earth",
+            "radius": 1,
+            "transform": [
+                {
+                    "rotate": [-23.5, 1, 0, 0]
+                }, {
+                    "rotate": [140, 0, 0, 1]
+                }, {
+                    "translate": [0, 0, 1]
+                }
+            ]
+        }, {
+            "type": "quad",
+            "transform": {
+                "translate": [0, 0, 0]
+            },
+            "size": 100,
+            "material": "white"
+        }
+    ]
+}

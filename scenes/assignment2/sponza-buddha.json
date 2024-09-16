@@ -1,0 +1,52 @@
+{
+    "camera": {
+        "transform": {
+            "from": [
+                -2, 0.5, -0.1
+            ],
+            "at": [0, 0.5, 0]
+        }
+    },
+    "sampler": {
+        "type": "independent",
+        "samples": 1
+    },
+    "background": [
+        2, 2, 2
+    ],
+    "accelerator": {
+        "type": "bbh"
+    },
+    "materials": [
+        {
+            "type": "diffuse",
+            "name": "white",
+            "color": [0.73, 0.73, 0.73]
+        }, {
+            "type": "diffuse",
+            "name": "red",
+            "color": [0.65, 0.05, 0.05]
+        }, {
+            "type": "diffuse",
+            "name": "green",
+            "color": [0.12, 0.45, 0.15]
+        }
+    ],
+    "surfaces": [
+        {
+            "type": "mesh",
+            "name": "sponza",
+            "filename": "../assets/sponza.obj",
+            "material": "white"
+        }, {
+            "type": "mesh",
+            "filename": "../assets/buddha.obj",
+            "material": "green",
+            "transform": [
+                {
+                    "translate": [-2, 0, 0]
+                }
+            ]
+        }
+    ]
+}

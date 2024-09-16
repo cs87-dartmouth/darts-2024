@@ -1,0 +1,90 @@
+{
+    "camera": {
+        "transform": {
+            "from": [
+                24, 10, 0
+            ],
+            "at": [
+                0, 3.5, 0
+            ],
+            "up": [0, 1, 0]
+        },
+        "vertical fov": 20,
+        "focus distance": 800,
+        "resolution": [720, 1280]
+    },
+    "sampler": {
+        "type": "independent",
+        "samples": 16
+    },
+    "background": 1,
+    "accelerator": {
+        "type": "bbh"
+    },
+    "materials": [
+        {
+            "type": "diffuse",
+            "name": "aem_aem21300_3dsl01_mo08-03_p_img ",
+            "color": {
+                "type": "image",
+                "filename": "../assets/nefertiti/albedo.png"
+            }
+        }, {
+            "type": "diffuse",
+            "name": "Floor",
+            "color": {
+                "type": "checker",
+                "color1": [
+                    0.725, 0.71, 0.68
+                ],
+                "color2": [
+                    0.325, 0.31, 0.25
+                ],
+                "scale": 0.57142857,
+                "mapping": {
+                    "type": "mapping",
+                    "transform": [
+                        {
+                            "translate": [0, 0.001, 0]
+                        }, {
+                            "rotate": [-45, 0, 1, 0]
+                        } 
+                    ]
+                }
+            }
+        }
+    ],
+    "surfaces": [
+        {
+            "type": "quad",
+            "name": "floor",
+            "transform": [
+                {
+                    "rotate": [-90, 1, 0, 0]
+                }, {
+                    "rotate": [45, 0, 1, 0]
+                }
+            ],
+            "size": [
+                150, 150
+            ],
+            "material": "Floor"
+        }, {
+            "type": "mesh",
+            "name": "ajax",
+            "filename": "../assets/nefertiti/aem_aem21300_3dsl01_mo08-03_p.obj",
+            "transform": [
+                {
+                    "rotate": [-90, 1, 0, 0]
+                }, {
+                    "translate": [413.7063, 226.50739, 86.24023]
+                }, {
+                    "scale": 0.015
+                }, {
+                    "rotate": [115, 0, 1, 0]
+                }
+            ],
+            "material": "aem_aem21300_3dsl01_mo08-03_p_img "
+        }
+    ]
+}

@@ -1,0 +1,73 @@
+{
+    "type": "tests",
+    "tests": [
+        {
+            "type": "sample material",
+            "material": {
+                "type": "diffuse",
+                "color": 1.0
+            },
+            "normal": [
+                0, 0, 1
+            ],
+            "name": "diffuse"
+        },
+        {
+            "type": "sample material",
+            "material": {
+                "type": "diffuse",
+                "color": 1.0
+            },
+            "normal": [
+                0.25, 0.5, 1.0
+            ],
+            "name": "diffuse-rotated"
+        },
+        {
+            "type": "sample material",
+            "material": {
+                "type": "phong",
+                "color": 1.0,
+                "exponent": 2
+            },
+            "normal": [
+                0, 0, 1
+            ],
+            "name": "phong"
+        },
+        {
+            "type": "sample material",
+            "material": {
+                "type": "phong",
+                "color": 1.0,
+                "exponent": 2
+            },
+            "normal": [
+                0.25, 0.5, 1.0
+            ],
+            "name": "phong-rotated"
+        }, {
+            "type": "sample material",
+            "material": {
+                "type": "blinn-phong",
+                "color": 1.0,
+                "exponent": 10
+            },
+            "normal": [
+                0, 0, 1
+            ],
+            "name": "blinn-phong"
+        }, {
+            "type": "sample material",
+            "material": {
+                "type": "blinn-phong",
+                "color": 1.0,
+                "exponent": 10
+            },
+            "normal": [
+                0.25, 0.5, 1.0
+            ],
+            "name": "blinn-phong-rotated"
+        }
+    ]
+}

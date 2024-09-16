@@ -52,11 +52,6 @@ if(WIN32)
   add_definitions(-DWIN32_LEAN_AND_MEAN -DNOMINMAX -DNOGDI -DVC_EXTRALEAN)
 endif()
 
-# Avoid macro hell from windows.h
-if(WIN32)
-  add_definitions(-DWIN32_LEAN_AND_MEAN -DNOMINMAX -DNOGDI -DVC_EXTRALEAN)
-endif()
-
 set(DARTS_DEPEND)
 set(DARTS_PRIVATE_LIBS)
 set(DARTS_PUBLIC_LIBS)

@@ -1,0 +1,56 @@
+{
+    "camera": {
+        "transform": {
+            "from": [
+                3, 0, 0.25
+            ],
+            "at": [
+                0, 0, 0.5
+            ],
+            "up": [0, 0, 1]
+        },
+        "vertical fov": 40,
+        "focus distance": 6,
+        "resolution": [512, 512]
+    },
+    "sampler": {
+        "type": "independent",
+        "samples": 64
+    },
+    "background": 0,
+    "accelerator": {
+        "type": "bbh"
+    },
+    "integrator": {
+        "type": "path tracer mis",
+        "max bounces": 1
+    },
+    "materials": [
+        {
+            "type": "emission",
+            "name": "light",
+            "color": 64
+        }, {
+            "type": "diffuse",
+            "name": "white",
+            "color": 1
+        }
+    ],
+    "surfaces": [
+        {
+            "type": "sphere",
+            "material": "light",
+            "radius": 0.125,
+            "transform": {
+                "translate": [0, 0, 1]
+            }
+        }, {
+            "type": "quad",
+            "transform": {
+                "translate": [0, 0, 0]
+            },
+            "size": 100,
+            "material": "white"
+        }
+    ]
+}

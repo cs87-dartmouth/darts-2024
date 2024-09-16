@@ -1,0 +1,85 @@
+{
+    "camera": {
+        "transform": {
+            "from": [
+                1, 6, 1
+            ],
+            "at": [
+                0, 0, 0.5
+            ],
+            "up": [0, 0, 1]
+        },
+        "vertical fov": 40,
+        "focus distance": 6,
+        "resolution": [512, 512]
+    },
+    "sampler": {
+        "type": "independent",
+        "samples": 128
+    },
+    "background": [
+        0.6, 0.6, 0.8
+    ],
+    "accelerator": {
+        "type": "bbh"
+    },
+    "materials": [
+        {
+            "type": "diffuse",
+            "name": "marble",
+            "color": {
+                "type": "marble",
+                "scale": 2,
+                "veins": 0,
+                "base": 0.9
+            }
+        }, {
+            "type": "diffuse",
+            "name": "floor",
+            "color": {
+                "type": "marble",
+                "scale": 3,
+                "veins": [
+                    0.08, 0.1, 0.08
+                ],
+                "base": [0.38, 0.4, 0.38]
+            }
+        }, {
+            "type": "emission",
+            "name": "light",
+            "color": [10, 10, 8]
+        }, {
+            "type": "diffuse",
+            "name": "white",
+            "color": 1
+        }
+    ],
+    "surfaces": [
+        {
+            "type": "sphere",
+            "material": "marble",
+            "radius": 1,
+            "transform": [
+                {
+                    "translate": [0, 0, 1]
+                }
+            ]
+        }, {
+            "type": "sphere",
+            "material": "light",
+            "radius": 2,
+            "transform": [
+                {
+                    "translate": [-5, 1, 6]
+                }
+            ]
+        }, {
+            "type": "quad",
+            "transform": {
+                "translate": [0, 0, 0]
+            },
+            "size": 100,
+            "material": "floor"
+        }
+    ]
+}
