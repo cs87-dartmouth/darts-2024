@@ -10,7 +10,7 @@ class Camera;
 template <typename T>
 class Image;
 class Integrator;
-struct HitInfo;
+struct HitRecord;
 struct ScatterRecord;
 class Light;
 class Material;
