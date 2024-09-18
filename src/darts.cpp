@@ -14,6 +14,7 @@
 #include <darts/scene.h>
 #include <filesystem/resolver.h>
 #include <fmt/chrono.h>
+#include <darts/test.h>
 
 int main(int argc, char **argv)
 {
