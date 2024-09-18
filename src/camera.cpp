@@ -32,3 +32,4 @@ Ray3f Camera::generate_ray(const Vec2f &pixel, const Vec2f &lens) const
     // You may initially ignore the lens parameter until you implement defocus blur
     put_your_code_here("Assignment 1: Insert your camera ray generation code here");
     return Ray3f(Vec3f(0.f), Vec3f(1.f));
+}
