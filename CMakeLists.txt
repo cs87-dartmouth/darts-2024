@@ -20,6 +20,14 @@ list(
   APPEND
   darts_lib_SOURCES
   # cmake-format: off
+  # Additional files for PA2 below
+  include/darts/box.h
+  include/darts/mesh.h
+  include/darts/triangle.h
+  src/surfaces/bbh.cpp
+  src/surfaces/mesh.cpp
+  src/surfaces/triangle.cpp
+  src/tests/intersection_test.cpp
   # Additional files for PA1 below
   include/darts/camera.h
   include/darts/factory.h
@@ -109,6 +117,11 @@ add_test(NAME "Tutorial1" COMMAND darts_tutorial1)
 add_executable(darts src/darts.cpp)
 target_link_libraries(darts PRIVATE darts_lib)
 
+add_executable(img_compare src/img_compare.cpp)
+target_link_libraries(img_compare PRIVATE darts_lib)
+
+add_executable(img_avg src/img_avg.cpp)
+target_link_libraries(img_avg PRIVATE darts_lib)
 
 
 

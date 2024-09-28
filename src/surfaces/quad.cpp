@@ -13,6 +13,7 @@ public:
     Quad(const json &j = json::object());
 
     bool intersect(const Ray3f &ray, HitRecord &hit) const override;
+    Box3f local_bounds() const override;
 
 protected:
     Vec2f m_size = Vec2f(1.f); ///< The extent of the quad in the (x,y) plane
@@ -62,6 +63,11 @@ bool Quad::intersect(const Ray3f &ray, HitRecord &hit) const
     return true;
 }
 
+Box3f Quad::local_bounds() const
+{
+    return Box3f{-Vec3f{m_size.x, m_size.y, 0} - Vec3f{Ray3f::epsilon},
+                 Vec3f{m_size.x, m_size.y, 0} + Vec3f{Ray3f::epsilon}};
+}
 
 
 

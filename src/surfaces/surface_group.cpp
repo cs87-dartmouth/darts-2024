@@ -30,6 +30,7 @@ void SurfaceGroup::build(const Scene *scene)
 void SurfaceGroup::add_child(shared_ptr<Surface> surface)
 {
     m_surfaces.push_back(surface);
+    m_bounds.enclose(m_surfaces.back()->bounds());
 }
 
 bool SurfaceGroup::intersect(const Ray3f &ray_, HitRecord &hit) const
@@ -59,6 +60,10 @@ bool SurfaceGroup::intersect(const Ray3f &ray_, HitRecord &hit) const
     return hit_anything;
 }
 
+Box3f SurfaceGroup::local_bounds() const
+{
+    return m_bounds;
+}
 
 
 

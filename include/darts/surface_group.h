@@ -38,10 +38,12 @@ public:
     */
     bool intersect(const Ray3f &ray, HitRecord &hit) const override;
 
+    Box3f local_bounds() const override;
 
 
 protected:
     vector<shared_ptr<Surface>> m_surfaces; ///< All children
+    Box3f m_bounds;
 };
 
 /**

@@ -16,8 +16,7 @@ void darts_init(int verbosity)
 {
     // changing the default logger requires calling this twice since the default empty name is already taken
     // here we force the default logger to always output in color
-    spdlog::set_default_logger(spdlog::stdout_color_mt("some_arbitrary_name"));
-    spdlog::set_default_logger(spdlog::stdout_color_mt("", spdlog::color_mode::always));
+    spdlog::set_default_logger(spdlog::stdout_color_mt("console"));
 
     spdlog::set_pattern("%^%v%$");
     spdlog::set_level(spdlog::level::level_enum(verbosity));
