@@ -20,6 +20,9 @@ list(
   APPEND
   darts_lib_SOURCES
   # cmake-format: off
+  # Additional files for PA3 below
+  include/darts/noise.h
+  src/noise.cpp
   # Additional files for PA2 below
   include/darts/box.h
   include/darts/mesh.h

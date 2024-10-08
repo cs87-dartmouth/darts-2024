@@ -33,7 +33,11 @@
                 "color2": [
                     0.9, 0.9, 0.9
                 ],
-                "scale": 10
+                "scale": 4,
+                "vector": {
+                    "type": "coord",
+                    "coordinate": "world"
+                }
             }
         }
     ],

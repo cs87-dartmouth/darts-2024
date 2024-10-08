@@ -35,10 +35,11 @@ This add-on provides support for exporting a Blender scene as a Darts `.json` sc
 ## Installation
 
 - Create a `.zip` file of this directory
-- In Blender, go to **Edit** -> **Preferences** -> **Add-ons** -> **Install**.
+- In Blender, go to **Edit** -> **Preferences** -> **Add-ons** -> **Install from Disk...**.
 - Select the ZIP archive
 - After the plugin is installed, it has to be activated by clicking the checkbox next to it in the Add-ons menu.
 
 ### Requirements
 
 * `Blender >= 2.93`
+* We recommend Blender >= 4.2

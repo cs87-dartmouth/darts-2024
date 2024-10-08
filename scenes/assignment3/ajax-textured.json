@@ -14,8 +14,8 @@
         "resolution": [720, 1280]
     },
     "sampler": {
-        "type": "independent",
-        "samples": 1
+        "type": "ssobol",
+        "samples": 256
     },
     "background": 1,
     "accelerator": {
@@ -34,13 +34,17 @@
                 "base": [
                     0.45, 0.4, 0.29
                 ],
-                "mapping": {
-                    "type": "transform",
+                "vector": {
+                    "type": "mapping",
                     "transform": [
                         {
                             "scale": 1.667
                         }
-                    ]
+                    ],
+                    "vector": {
+                        "type": "coord",
+                        "coordinate": "world"
+                    }
                 }
             }
         }, {
@@ -67,16 +71,20 @@
                 "color2": [
                     0.325, 0.31, 0.25
                 ],
-                "scale": 0.57142857,
-                "mapping": {
-                    "type": "transform",
+                "scale": 0.19047619,
+                "vector": {
+                    "type": "mapping",
                     "transform": [
                         {
                             "translate": [0, 0.001, 0]
                         }, {
                             "rotate": [-45, 0, 1, 0]
                         }
-                    ]
+                    ],
+                    "vector": {
+                        "type": "coord",
+                        "coordinate": "world"
+                    }
                 }
             }
         }

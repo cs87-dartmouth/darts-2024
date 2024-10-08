@@ -40,8 +40,8 @@
                 "color2": [
                     0.325, 0.31, 0.25
                 ],
-                "scale": 0.57142857,
-                "mapping": {
+                "scale": 0.19047619,
+                "vector": {
                     "type": "mapping",
                     "transform": [
                         {
@@ -49,7 +49,11 @@
                         }, {
                             "rotate": [-45, 0, 1, 0]
                         } 
-                    ]
+                    ],
+                    "vector": {
+                        "type": "coord",
+                        "coordinate": "world"
+                    }
                 }
             }
         }
