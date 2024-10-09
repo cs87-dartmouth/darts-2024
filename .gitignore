@@ -16,3 +16,5 @@ __pycache__
 /scenes/meshes
 /scenes/assets
 **.nvdb
+**.blend
+**.blend1
