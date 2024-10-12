@@ -265,6 +265,7 @@ def convert_noise_texture_node(ctx, out_socket):
         "scale": convert_texture_node(ctx, node.inputs["Scale"]),
         "detail": convert_texture_node(ctx, node.inputs["Detail"]),
         "roughness": convert_texture_node(ctx, node.inputs["Roughness"]),
+        "lacunarity": convert_texture_node(ctx, node.inputs["Lacunarity"]),
         "distortion": convert_texture_node(ctx, node.inputs["Distortion"]),
         "dimensions": dims,
         "normalize": node.normalize,

@@ -22,6 +22,9 @@ float perlin_noise(const Vec2f &p);
 float perlin_noise(const Vec3f &p);
 float perlin_noise(const Vec4f &p);
 
+static constexpr float vector_noise_offsets[4][4] = {
+    {227.f, 49.f, 81.f, 73.f}, {34.f, 53.f, 23.f, -142.f}, {17.f, 113.f, 93.f, 292.f}, {23.f, 31.f, 113.f, 29.f}};
+
 /** @}*/
 
 
