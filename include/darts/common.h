@@ -245,6 +245,129 @@ Range<T> range(T start, T end, T step = T(1))
 
 
 /**
+    Python-style range, but for nested, multi-dimensional loops (up to 4 dimensions).
+
+    To use:
+
+    \code{.cpp}
+    for (int z = 0; z < 5; z++)                             // old way
+        for (int y = 0; y < 7; y++)
+            for (int x = 0; x < 3; z++)
+            {
+                ... use x, y, z
+            }
+    for (auto i : range<3,int>({3, 7, 5}))                  // new way
+    {
+        ... use i.x, i.y, i.z
+    }
+
+    for (int y = -6; y < 7; y++)                            // old way
+        for (int x = -2; x < 3; z++)
+        {
+            ... use x, y
+        }
+    for (auto i : range<2,int>({-2, -6}, {3, 7}))           // new way
+    {
+        ... use i.x, i.y
+    }
+    \endcode
+*/
+template <int N, typename T>
+class RangeND
+{
+public:
+    // Standard iterator support for #RangeND
+    class Iterator
+    {
+        const RangeND<N, T> &range;
+        Vec<N, T>            a;
+
+    public:
+        Iterator(const RangeND<N, T> &range, const Vec<N, T> &a) : range(range), a(a)
+        {
+        }
+        const Vec<N, T> &operator*() const
+        {
+            return a;
+        }
+        Iterator &operator++()
+        {
+            for (int d = 0; d < N; ++d)
+            {
+                ++a[d];
+                if (d < N - 1 && a[d] >= range.m_end[d])
+                    a[d] = range.m_start[d];
+                else
+                    return (*this);
+            }
+            return (*this);
+        }
+        bool operator!=(const Iterator &other)
+        {
+            return a[N - 1] != other.a[N - 1];
+        }
+    };
+
+    RangeND(const Vec<N, T> &a, const Vec<N, T> &b) : m_start(a), m_end(b)
+    {
+    }
+
+    Iterator begin() const
+    {
+        return Iterator(*this, m_start);
+    }
+    Iterator end() const
+    {
+        return Iterator(*this, m_end);
+    }
+
+private:
+    Vec<N, T> m_start, m_end;
+};
+
+template <int N, typename T>
+RangeND<N, T> range(const Vec<N, T> &a, const Vec<N, T> &b)
+{
+    return RangeND<N, T>(a, b);
+}
+
+inline RangeND<2, int> range2i(const Vec<2, int> &a, const Vec<2, int> &b)
+{
+    return range(a, b);
+}
+
+inline RangeND<3, int> range3i(const Vec<3, int> &a, const Vec<3, int> &b)
+{
+    return range(a, b);
+}
+
+inline RangeND<4, int> range4i(const Vec<4, int> &a, const Vec<4, int> &b)
+{
+    return range(a, b);
+}
+
+template <int N, typename T>
+RangeND<N, T> range(const Vec<N, T> &b)
+{
+    return range(Vec<N, T>{0}, b);
+}
+
+inline RangeND<2, int> range2i(const Vec<2, int> &b)
+{
+    return range(Vec<2, int>{0}, b);
+}
+
+inline RangeND<3, int> range3i(const Vec<3, int> &b)
+{
+    return range(Vec<3, int>{0}, b);
+}
+
+inline RangeND<4, int> range4i(const Vec<4, int> &b)
+{
+    return range(Vec<4, int>{0}, b);
+}
+
+/**
     Return the global file resolver instance.
 
     This class is used to locate resource files (e.g. mesh or texture files) referenced by a scene being loaded.
