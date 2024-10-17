@@ -181,6 +181,68 @@ void ScatterTest::run()
     print_more_statistics();
 }
 
+SampleTest::SampleTest(const json &j) : ScatterTest(j)
+{
+    super_samples = j.value("super samples", 32);
+}
+
+void SampleTest::run()
+{
+    // Step 1: Evaluate pdf over the sphere and compute its integral
+    RNG            rng;
+    double         integral = 0.0f;
+    Array2d<float> pdf(image_size.x, image_size.y);
+    Progress       progress1("Evaluating analytic PDF", pdf.height());
+    for (int y = 0; y < pdf.height(); ++y, ++progress1)
+        for (int x = 0; x < pdf.width(); x++)
+        {
+            float accum = 0.f;
+            for (int sx = 0; sx < super_samples; ++sx)
+                for (int sy = 0; sy < super_samples; ++sy)
+                {
+                    Vec3f dir =
+                        pixel_to_sample(Vec2f{x + (sx + 0.5f) / super_samples, y + (sy + 0.5f) / super_samples});
+                    float sin_theta = std::sqrt(max(1.0f - dir.z * dir.z, 0.0f));
+                    float pixel_area =
+                        (M_PI / super_samples) * (M_PI * 2.0f / super_samples) * sin_theta / product(image_size);
+                    float value = this->pdf(dir, rng.rand1f());
+                    accum += value;
+                    integral += pixel_area * value;
+                }
+            pdf(x, y) = accum / (super_samples * super_samples);
+        }
+    progress1.set_done();
+
+    // Step 2: Compute automatic exposure value as the 99.95th percentile instead of maximum for increased robustness
+    if (max_value < 0.f)
+    {
+        std::vector<float> values(&pdf(0, 0), &pdf(0, 0) + pdf.length());
+        std::sort(values.begin(), values.end());
+        max_value = values[int((pdf.length() - 1) * 0.9995)];
+    }
+
+    // Now upscale our histogram and pdf
+    Array2d<float> pdf_upsampled = upsample(pdf, up_samples);
+
+    // Generate heat maps
+    // NOTE: we use get_file_resolver()[0] here to refer to the parent directory of the scene file.
+    // This assumes that the calling code has prepended this directory to the front of the global resolver list
+    {
+        string filename = (get_file_resolver()[0] / (name + "-pdf")).str();
+        spdlog::info("Saving pdf histogram images to '{}.[png|exr]'", filename);
+        generate_heatmap(pdf_upsampled, 1.f / max_value).save(filename + ".png");
+        generate_graymap(pdf_upsampled).save(filename + ".exr");
+    }
+
+    // Output statistics
+    auto integral_msg = fmt::format("Integral of PDF (should be close to 1): {}", integral);
+    if (integral > 1.01f || integral < 0.90f)
+        throw DartsException(integral_msg.c_str());
+    spdlog::info(integral_msg);
+
+    // Step 3: build the histogram
+    ScatterTest::run();
+}
 
 /**
     \dir

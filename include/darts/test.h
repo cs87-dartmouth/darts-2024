@@ -50,6 +50,15 @@ struct ScatterTest : public Test
     float    max_value  = -1.f;
 };
 
+struct SampleTest : public ScatterTest
+{
+    SampleTest(const json &j);
+
+    virtual void  run() override;
+    virtual float pdf(const Vec3f &dir, float rv1) const = 0;
+
+    uint32_t super_samples;
+};
 
 /**
     \file
