@@ -22,6 +22,10 @@ public:
     Box3f bounds() const override;
 
 
+    bool is_emissive() const override
+    {
+        return m_mesh && m_mesh->m[m_mesh->mi[m_face_idx]] && m_mesh->m[m_mesh->mi[m_face_idx]]->is_emissive();
+    }
 
     // convenience function to access the i-th vertex (i must be 0, 1, or 2)
     Vec3f vertex_position(size_t i) const
