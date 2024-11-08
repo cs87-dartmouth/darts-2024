@@ -20,6 +20,14 @@ list(
   APPEND
   darts_lib_SOURCES
   # cmake-format: off
+  # Additional files for PA6 below
+  include/darts/medium.h
+  include/darts/photon.h
+  include/darts/point_kdtree.h
+  src/photon.cpp
+  src/media/homogeneous.cpp
+  src/media/vacuum.cpp
+  src/tests/photon_map_test.cpp
   # Additional files for PA5 below
   src/tests/surface_sample_test.cpp
   # Additional files for PA4 below
@@ -85,6 +93,11 @@ list(
 )
 
 
+# Additional files for A6 below
+if(USE_NANOVDB)
+  list(APPEND darts_lib_SOURCES src/media/nanovdb_medium.cpp)
+endif(USE_NANOVDB)
+
 add_library(darts_lib OBJECT ${darts_lib_SOURCES})
 
 # being a cross-platform target, we enforce standards conformance on MSVC
@@ -133,4 +146,9 @@ add_executable(img_avg src/img_avg.cpp)
 target_link_libraries(img_avg PRIVATE darts_lib)
 
 
+if(USE_NANOVDB)
+  add_executable(nanovdb_test src/nanovdb_test.cpp)
+  target_link_libraries(nanovdb_test PRIVATE darts_lib nanovdb)
+  add_test(NAME "NanoVDB_Test" COMMAND nanovdb_test)
+endif(USE_NANOVDB)
 

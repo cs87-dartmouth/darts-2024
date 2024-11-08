@@ -1,5 +1,9 @@
 <meta charset="utf-8" emacsmode="-*- markdown -*-">
-<style class="fallback">body {visibility: hidden}</style>
+<style class="fallback">
+    body {
+        visibility: hidden
+    }
+</style>
 <link href="../resources/common.css" rel="stylesheet" type="text/css" />
 
 **Assignment 5**
@@ -8,14 +12,14 @@ Student name: XXXX
 
 Netid: YYYY
 
-(##) Task 1: Sampling Geometry
+(#) Task 1: Sampling Geometry
 
 
 
-(##) Task 2: Making Lights Sampleable
+(#) Task 2: Making Lights Sampleable
 
 
-Rectangles
+(##) Rectangles
 
 <div class="twentytwenty-container">
     <img src="../../scenes/assignment5/quad-pdf-ref.png" alt="Reference-pdf">
@@ -24,7 +28,7 @@ Rectangles
     <img src="quad-sampled.png" alt="Mine-sampled">
 </div>
 
-Triangles
+(##) Triangles
 
 <div class="twentytwenty-container">
     <img src="../../scenes/assignment5/triangle-pdf-ref.png" alt="Reference-pdf">
@@ -33,7 +37,7 @@ Triangles
     <img src="triangle-sampled.png" alt="Mine-sampled">
 </div>
 
-Spheres
+(##) Spheres
 
 <div class="twentytwenty-container">
     <img src="../../scenes/assignment5/sphere-pdf-ref.png" alt="Reference-pdf">
@@ -42,7 +46,7 @@ Spheres
     <img src="sphere-sampled.png" alt="Mine-sampled">
 </div>
 
-Surface Groups
+(##) Surface Groups
 
 <div class="twentytwenty-container">
     <img src="../../scenes/assignment5/group-pdf-ref.png" alt="Reference-pdf">
@@ -51,72 +55,99 @@ Surface Groups
     <img src="group-sampled.png" alt="Mine-sampled">
 </div>
 
-(##) Task 3: Integrating Lights
+(#) Task 3: Integrating Lights
 
-Direct Lighting Material Integrator
+(##) Direct Lighting
 
-Next Event Integrator
+(###) Odyssey scene
 
-<div class="twentytwenty-container">
-    <img src="../../scenes/assignment5/veach_nee-ref.png" alt="Reference">
-    <img src="veach_nee.png" alt="Mine">
-</div>
-
-Additional verification
+One quad
 
 <div class="twentytwenty-container">
-    <img src="../../scenes/assignment4/odyssey_mats-ref.png" alt="Material sampling one quad ref">
-    <img src="../../scenes/assignment5/odyssey_triangle_mats-ref.png" alt="Material sampling two triangles ref">
-    <img src="../../scenes/assignment5/odyssey_nee-ref.png" alt="Light sampling one quad ref">
-    <img src="../../scenes/assignment5/odyssey_triangle_nee-ref.png" alt="Light sampling two triangles ref">
+    <img src="../../scenes/assignment4/odyssey_mats-ref.png" alt="Material sampling ref">
+    <img src="../../scenes/assignment4/odyssey_mats.png" alt="Material sampling mine">
+    <img src="../../scenes/assignment5/odyssey_nee-ref.png" alt="Light sampling ref">
+    <img src="../../scenes/assignment5/odyssey_nee.png" alt="Light sampling mine">
 </div>
 
-<div class="twentytwenty-container">
-    <img src="../../scenes/assignment4/odyssey_mats-ref.png" alt="Material sampling one quad ref">
-    <img src="odyssey_triangle_mats.png" alt="Material sampling two triangles mine">
-    <img src="odyssey_nee.png" alt="Light sampling one quad mine">
-    <img src="odyssey_triangle_nee.png" alt="Light sampling two triangles mine">
-</div>
-
-MIS Integrator
-
-<div class="twentytwenty-container">
-    <img src="../../scenes/assignment4/veach_mats-ref.png" alt="Material sampling ref">
-    <img src="../../scenes/assignment5/veach_nee-ref.png" alt="Next event estimation ref">
-    <img src="../../scenes/assignment5/veach_mis-ref.png" alt="MIS ref">
-</div>
-
-<div class="twentytwenty-container">
-    <img src="veach_mats.png" alt="Material sampling mine">
-    <img src="veach_nee.png" alt="Next event estimation mine">
-    <img src="veach_mis.png" alt="MIS mine">
-</div>
+Two triangles
 
 <div class="twentytwenty-container">
     <img src="../../scenes/assignment5/odyssey_triangle_mats-ref.png" alt="Material sampling ref">
-    <img src="../../scenes/assignment5/odyssey_triangle_nee-ref.png" alt="Next event estimation ref">
-    <img src="../../scenes/assignment5/odyssey_triangle_mis-ref.png" alt="MIS ref">
+    <img src="odyssey_triangle_mats.png" alt="Material sampling mine">
+    <img src="../../scenes/assignment5/odyssey_triangle_nee-ref.png" alt="Light sampling ref">
+    <img src="odyssey_triangle_nee.png" alt="Light sampling ref">
 </div>
 
+(###) Veach scene
+
+Material Sampling Integrator
+
 <div class="twentytwenty-container">
-    <img src="veach_mats-ref.png" alt="Material sampling mine">
-    <img src="veach_nee-ref.png" alt="Next event estimation mine">
-    <img src="veach_mis-ref.png" alt="MIS mine">
+    <img src="../../scenes/assignment4/veach_mats-ref.png" alt="Material sampling ref">
+    <img src="veach_mats.png" alt="Material sampling mine">
 </div>
 
-Full Path Tracing
+Next Event Integrator (light sampling)
 
 <div class="twentytwenty-container">
-<img src="../../scenes/assignment5/jensen_box_mats-ref.png" alt="Material sampling ref">
-<img src="../../scenes/assignment5/jensen_box_nee-ref.png" alt="Next event estimation ref">
-<img src="../../scenes/assignment5/jensen_box_mis-ref.png" alt="MIS ref">
+    <img src="../../scenes/assignment5/veach_nee-ref.png" alt="Next event estimation ref">
+    <img src="veach_nee.png" alt="Next event estimation mine">
 </div>
 
+MIS
 
 <div class="twentytwenty-container">
-<img src="jensen_box_mats-ref.png" alt="Material sampling mine">
-<img src="jensen_box_nee-ref.png" alt="Next event estimation mine">
-<img src="jensen_box_mis-ref.png" alt="MIS mine">
+    <img src="../../scenes/assignment5/veach_mis-ref.png" alt="MIS ref">
+    <img src="veach_mis.png" alt="MIS mine">
+</div>
+
+(##) Full Path Tracing
+
+(###) Diffuse Jensen box scene
+
+Material Sampling Integrator
+
+<div class="twentytwenty-container">
+    <img src="../../scenes/assignment5/jensen_box_diffuse_mats-ref.png" alt="Material sampling ref">
+    <img src="jensen_box_diffuse_mats-ref.png" alt="Material sampling mine">
+</div>
+
+Next Event Integrator (light sampling)
+
+<div class="twentytwenty-container">
+    <img src="../../scenes/assignment5/jensen_box_diffuse_nee-ref.png" alt="MIS ref">
+    <img src="jensen_box_diffuse_mis-ref.png" alt="MIS mine">
+</div>
+
+MIS
+
+<div class="twentytwenty-container">
+    <img src="../../scenes/assignment5/jensen_box_diffuse_mis-ref.png" alt="MIS ref">
+    <img src="jensen_box_diffuse_mis-ref.png" alt="MIS mine">
+</div>
+
+(###) Glossy Jensen box scene
+
+Material Sampling Integrator
+
+<div class="twentytwenty-container">
+    <img src="../../scenes/assignment5/jensen_box_glossy_mats-ref.png" alt="Material sampling ref">
+    <img src="jensen_box_glossy_mats-ref.png" alt="Material sampling mine">
+</div>
+
+Next Event Integrator (light sampling)
+
+<div class="twentytwenty-container">
+    <img src="../../scenes/assignment5/jensen_box_glossy_nee-ref.png" alt="MIS ref">
+    <img src="jensen_box_glossy_mis-ref.png" alt="MIS mine">
+</div>
+
+MIS
+
+<div class="twentytwenty-container">
+    <img src="../../scenes/assignment5/jensen_box_glossy_mis-ref.png" alt="MIS ref">
+    <img src="jensen_box_glossy_mis-ref.png" alt="MIS mine">
 </div>
 
 <!-- Slider -->
